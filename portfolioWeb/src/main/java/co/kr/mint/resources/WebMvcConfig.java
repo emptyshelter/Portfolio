@@ -5,6 +5,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import co.kr.mint.interceptor.VisitTimeInterceptor;
+
 @SuppressWarnings("deprecation")
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
@@ -15,8 +17,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new TestInterceptor())
-//                .addPathPatterns("/*");
+        registry.addInterceptor(new VisitTimeInterceptor())
+                .addPathPatterns("/*");
     }
 }
 

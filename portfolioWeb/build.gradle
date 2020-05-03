@@ -17,11 +17,14 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url "https://code.lds.org/nexus/content/groups/main-repo"} // 추가하기
 }
-
+ 
 dependencies {
 	//implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
@@ -29,6 +32,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1" 
+	compile 'com.oracle:ojdbc6:11.2.0.3' // 추가하기
 	compile fileTree(dir: '/webapp/WEB-INF/lib', include: ['*.jar'])
 	//testImplementation 'org.springframework.security:spring-security-test'
 	compile group: 'jstl', name: 'jstl', version: '1.2' 

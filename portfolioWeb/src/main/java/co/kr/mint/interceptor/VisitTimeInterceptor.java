@@ -53,20 +53,25 @@ public class VisitTimeInterceptor extends HandlerInterceptorAdapter {
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
+        System.out.println(ip+"아이피는?");
         //유입경로 확인
         String Referer  =request.getHeader("referer");
         if(Referer == null || Referer =="") {
         	Referer = "new";
         }
+        System.out.println(Referer+"어디서왔니?");
         //접속 시간
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(time+"지금몇시지?");
         //중복체크
         String sessionid= request.getRequestedSessionId();
+        System.out.println(sessionid+"세션있나?");
         if (httpSession.getAttribute("sessionId") == null) {
             httpSession.setAttribute("sessionId", sessionid);
             Stats stats = new Stats(0, ip, time, Referer , browser);
-            st.createStats(stats);
             System.out.println(ip+"<아이피"+time+"<접속시간"+Referer+"<접속경로"+browser+"<브라우저");
+//            int create = st.createStats(stats);
+//            System.out.println(create+"0이면 실패던가?");
         }
         return true; // true를 return해야 
                      // 다음 핸들러 혹은 인터셉터까지 요청 처리가 된다.

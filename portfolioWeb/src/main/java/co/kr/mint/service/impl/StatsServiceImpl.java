@@ -1,4 +1,4 @@
-package com.itwill.staily.admin.service.impl;
+package co.kr.mint.service.impl;
 
 import java.util.List;
 
