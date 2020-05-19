@@ -1,4 +1,4 @@
-package co.kr.mint.resources;
+package co.kr.mint;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

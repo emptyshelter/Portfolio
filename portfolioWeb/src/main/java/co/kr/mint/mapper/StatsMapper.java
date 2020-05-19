@@ -11,7 +11,7 @@ import co.kr.mint.model.Stats;
 @Repository("statsMapper")
 @Mapper
 public interface StatsMapper {
-	public int createStats(Stats stats);
+	public boolean createStats(Stats stats);
 	
 	public List<Stats>selectTime(String stTime);
 	

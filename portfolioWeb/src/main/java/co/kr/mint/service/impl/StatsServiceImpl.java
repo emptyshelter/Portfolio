@@ -14,7 +14,7 @@ public class StatsServiceImpl implements StatsService {
 	@Autowired
 	private StatsMapper statsMapper; 
 	@Override
-	public int createStats(Stats stats) throws Exception {
+	public boolean createStats(Stats stats) throws Exception {
 		return statsMapper.createStats(stats);
 	}
 	@Override

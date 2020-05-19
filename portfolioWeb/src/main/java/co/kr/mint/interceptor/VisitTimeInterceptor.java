@@ -68,10 +68,14 @@ public class VisitTimeInterceptor extends HandlerInterceptorAdapter {
         System.out.println(sessionid+"세션있나?");
         if (httpSession.getAttribute("sessionId") == null) {
             httpSession.setAttribute("sessionId", sessionid);
+           try {
             Stats stats = new Stats(0, ip, time, Referer , browser);
             System.out.println(ip+"<아이피"+time+"<접속시간"+Referer+"<접속경로"+browser+"<브라우저");
-//            int create = st.createStats(stats);
-//            System.out.println(create+"0이면 실패던가?");
+            System.out.println(stats+"널싫어해!!!");
+            st.createStats(stats);
+           }catch (Exception e) {
+			System.out.println("에러에러에러에러");
+           }
         }
         return true; // true를 return해야 
                      // 다음 핸들러 혹은 인터셉터까지 요청 처리가 된다.
